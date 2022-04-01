@@ -1,0 +1,105 @@
+------------------------------------------------
+分布式版本控制 VS 集中式版本控制工具
+
+创建远程库
+代码推送 push
+代码拉取 pull
+代码克隆 clone
+SSH免密登录
+Idea集成github
+码云
+
+
+Gitlab： 
+Gitlab服务器的搭建和部署
+
+Git是一个免密的、开源的分布式版本控制系统
+
+版本控制记录：记录之前的版本类似副本，从个人开发到团队开发
+
+集中式版本控制工具：CVS、SVN、VSS，都有一个单一的集中服务器，中央服务器
+
+缺点：中央服务器的单点故障
+
+分布式版本控制工具：git 
+      解决了集中式版本控制工具的缺陷：
+1.	服务器断网的情况下也可以开发
+2.	每个客户端保存的也是整个完整的项目
+
+工作区---git add----暂存区----git commit----本地库----push----远程库
+  |                                    |                                                 |
+写代码                      临时存储                                  历史版本
+
+-------------------------------------------------------
+局域网：gitlab
+互联网：github gitee
+
+Git常用命令
+git config –global user.name 用户名                     设置用户签名
+git config –global user.email 邮箱                        设置用户签名
+git init                                             初始化本地库
+git status                                          查看本地库状态
+git add 文件名           添加到暂存区
+git commit -m “日志信息” 文件名         提交到本地库
+git reflog                       查看历史记录
+git reset –hard 版本号               版本穿梭
+------------------------------------------------
+
+1.	设置用户签名和邮箱
+git config –global user.name 用户名
+git config –global user.email 邮箱
+2.	初始化本地库            ---------------在要建的文件夹目录下右击打开git bash即可进入该目录
+git init         ----初始化
+ll -a          ----可查看隐藏文件列表
+ls -a         ----可查看路径
+3.	新增文件hello.txt
+Vim hello.txt
+a---编辑
+esc  :  wq----保存退出
+ll 查看文件列表
+cat hello.txt 查看文件内容
+tail -n 1 hello.txt   查看末尾第一行
+git status查看文件状态
+
+4.	git add 将文件添加到暂存区
+git add hello.txt
+git status
+
+5.	git commit -m “日志信息” 文件名   提交到文件库
+git commit -m “first commit” hello.txt
+git status   ----查看日志
+git reflog  ---查看详细日志
+
+文件版本穿梭回之前;
+git reset –hard 版本号    -- 是两根-
+----------------------------------------------
+分支
+
+在版本控制过程中，同时提交多个任务，为每个任务，我们可以创建每个任务的单独分支。使用分支程序员可以把自己的工作从开发主线上分离开来，开发自己的分支时，不影响主线分支的运行。（底层是指针的引用）
+
+git branch 分支名          创建分支
+git branch -v              查看分支
+git checkout 分支名        切换分支
+git merge 分支名          把指定的分支合并到当前分支上
+
+---------------------------------------
+github
+
+git remote -v    查看别名
+git remote add 别名 链接         创建别名
+
+推送代码：
+git push 别名（链接） 分支名（master）
+
+
+拉取代码（自己的）：
+git pull 别名（链接） 分支（master）
+
+---------------------------------------------
+克隆：
+git clone 链接
+
+1.拉取文件
+2.初始化本地库
+3.取别名
+
